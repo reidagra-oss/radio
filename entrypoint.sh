@@ -9,7 +9,7 @@ export ICECAST_RELAY_PASSWORD="${ICECAST_RELAY_PASSWORD:-hackme_relay}"
 export ICECAST_PORT="${PORT:-8000}"
 export ICECAST_LOCATION="${ICECAST_LOCATION:-Render Cloud Server}"
 export ICECAST_ADMIN_EMAIL="${ICECAST_ADMIN_EMAIL:-admin@localhost}"
-export ICECAST_HOSTNAME="${ICECAST_HOSTNAME:-localhost}"
+export ICECAST_HOSTNAME="${RENDER_EXTERNAL_HOSTNAME:-localhost}"
 
 # Generate final icecast.xml replacing placeholders
 envsubst < /etc/icecast2/icecast.xml.template > /etc/icecast2/icecast.xml
@@ -19,5 +19,6 @@ chown -R icecast:icecast /var/log/icecast /etc/icecast2
 chmod 600 /etc/icecast2/icecast.xml
 
 echo "Starting Icecast2 on port ${ICECAST_PORT}..."
+echo "Active Hostname: ${ICECAST_HOSTNAME}"
 echo "Active Source Password: ${ICECAST_SOURCE_PASSWORD}"
 exec su-exec icecast icecast -c /etc/icecast2/icecast.xml
