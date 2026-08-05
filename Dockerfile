@@ -13,6 +13,6 @@ RUN sed -i 's/\r$//' /entrypoint.sh && \
     mkdir -p /var/log/icecast && \
     chown -R icecast:icecast /var/log/icecast /etc/icecast2
 
-EXPOSE 8000
+EXPOSE 80
 
 ENTRYPOINT ["/entrypoint.sh"]
