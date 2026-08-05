@@ -35,6 +35,9 @@
         <genre>Live Radio</genre>
         <bitrate>128</bitrate>
         <type>audio/mpeg</type>
+        <header name="Access-Control-Allow-Origin" value="*" />
+        <header name="Access-Control-Allow-Methods" value="GET, OPTIONS, HEAD" />
+        <header name="Access-Control-Allow-Headers" value="Content-Type, Range" />
     </mount>
 
     <mount mount="/stream.mp3">
@@ -45,6 +48,9 @@
         <genre>Live Radio</genre>
         <bitrate>128</bitrate>
         <type>audio/mpeg</type>
+        <header name="Access-Control-Allow-Origin" value="*" />
+        <header name="Access-Control-Allow-Methods" value="GET, OPTIONS, HEAD" />
+        <header name="Access-Control-Allow-Headers" value="Content-Type, Range" />
     </mount>
 
     <paths>
