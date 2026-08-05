@@ -23,15 +23,15 @@
     <listen-socket>
         <port>${ICECAST_PORT}</port>
         <bind-address>0.0.0.0</bind-address>
-        <shoutcast-mount>/stream</shoutcast-mount>
+        <shoutcast-mount>/stream.mp3</shoutcast-mount>
     </listen-socket>
 
-    <!-- Preconfigured Mount Points with CORS for HTML5 / IMVU -->
-    <mount mount="/stream">
-        <mount-name>/stream</mount-name>
+    <!-- Preconfigured Mount Points with Fallback & CORS for HTML5 / IMVU -->
+    <mount mount="/stream.mp3">
+        <mount-name>/stream.mp3</mount-name>
         <public>1</public>
-        <stream-name>Direct Live Stream</stream-name>
-        <stream-description>Direct Audio Stream</stream-description>
+        <stream-name>Direct MP3 Stream</stream-name>
+        <stream-description>MP3 Stream for HTML5/IMVU</stream-description>
         <genre>Live Radio</genre>
         <bitrate>128</bitrate>
         <type>audio/mpeg</type>
@@ -40,11 +40,13 @@
         <header name="Access-Control-Allow-Headers" value="Content-Type, Range" />
     </mount>
 
-    <mount mount="/stream.mp3">
-        <mount-name>/stream.mp3</mount-name>
+    <mount mount="/stream">
+        <mount-name>/stream</mount-name>
+        <fallback-mount>/stream.mp3</fallback-mount>
+        <fallback-override>1</fallback-override>
         <public>1</public>
-        <stream-name>Direct MP3 Stream</stream-name>
-        <stream-description>MP3 Stream for HTML5/IMVU</stream-description>
+        <stream-name>Direct Live Stream</stream-name>
+        <stream-description>Direct Audio Stream</stream-description>
         <genre>Live Radio</genre>
         <bitrate>128</bitrate>
         <type>audio/mpeg</type>
