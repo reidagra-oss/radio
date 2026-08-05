@@ -19,4 +19,5 @@ chown -R icecast:icecast /var/log/icecast /etc/icecast2
 chmod 600 /etc/icecast2/icecast.xml
 
 echo "Starting Icecast2 on port ${ICECAST_PORT}..."
+echo "Active Source Password: ${ICECAST_SOURCE_PASSWORD}"
 exec su-exec icecast icecast -c /etc/icecast2/icecast.xml
