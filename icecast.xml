@@ -56,8 +56,8 @@
     </paths>
 
     <logging>
-        <accesslog>access.log</accesslog>
-        <errorlog>error.log</errorlog>
+        <accesslog>-</accesslog>
+        <errorlog>-</errorlog>
         <loglevel>3</loglevel>
         <logsize>10000</logsize>
     </logging>

@@ -14,12 +14,9 @@ export ICECAST_HOSTNAME="${ICECAST_HOSTNAME:-localhost}"
 # Generate final icecast.xml replacing placeholders
 envsubst < /etc/icecast2/icecast.xml.template > /etc/icecast2/icecast.xml
 
-# Ensure permissions
+# Set strict permissions required by Icecast (600) and ownership
 chown -R icecast:icecast /var/log/icecast /etc/icecast2
-
-# Symlink logs to stdout/stderr for Docker/Render log visibility
-ln -sf /dev/stdout /var/log/icecast/access.log
-ln -sf /dev/stderr /var/log/icecast/error.log
+chmod 600 /etc/icecast2/icecast.xml
 
 echo "Starting Icecast2 on port ${ICECAST_PORT}..."
 exec su-exec icecast icecast -c /etc/icecast2/icecast.xml
