@@ -20,6 +20,12 @@
         <admin-password>${ICECAST_ADMIN_PASSWORD}</admin-password>
     </authentication>
 
+    <http-headers>
+        <header name="Access-Control-Allow-Origin" value="*" />
+        <header name="Access-Control-Allow-Methods" value="GET, OPTIONS, HEAD" />
+        <header name="Access-Control-Allow-Headers" value="Content-Type, Range, Authorization" />
+    </http-headers>
+
     <listen-socket>
         <port>${ICECAST_PORT}</port>
         <bind-address>0.0.0.0</bind-address>
@@ -35,9 +41,11 @@
         <genre>Live Radio</genre>
         <bitrate>128</bitrate>
         <type>audio/mpeg</type>
-        <header name="Access-Control-Allow-Origin" value="*" />
-        <header name="Access-Control-Allow-Methods" value="GET, OPTIONS, HEAD" />
-        <header name="Access-Control-Allow-Headers" value="Content-Type, Range" />
+        <http-headers>
+            <header name="Access-Control-Allow-Origin" value="*" />
+            <header name="Access-Control-Allow-Methods" value="GET, OPTIONS, HEAD" />
+            <header name="Access-Control-Allow-Headers" value="Content-Type, Range" />
+        </http-headers>
     </mount>
 
     <mount mount="/stream">
@@ -50,9 +58,11 @@
         <genre>Live Radio</genre>
         <bitrate>128</bitrate>
         <type>audio/mpeg</type>
-        <header name="Access-Control-Allow-Origin" value="*" />
-        <header name="Access-Control-Allow-Methods" value="GET, OPTIONS, HEAD" />
-        <header name="Access-Control-Allow-Headers" value="Content-Type, Range" />
+        <http-headers>
+            <header name="Access-Control-Allow-Origin" value="*" />
+            <header name="Access-Control-Allow-Methods" value="GET, OPTIONS, HEAD" />
+            <header name="Access-Control-Allow-Headers" value="Content-Type, Range" />
+        </http-headers>
     </mount>
 
     <paths>
