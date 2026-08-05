@@ -53,6 +53,7 @@
         <webroot>/usr/share/icecast/web</webroot>
         <adminroot>/usr/share/icecast/admin</adminroot>
         <alias source="/" destination="/status.xsl"/>
+        <alias source="/healthz" destination="/status.xsl"/>
     </paths>
 
     <logging>
